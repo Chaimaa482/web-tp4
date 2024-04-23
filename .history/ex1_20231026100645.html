@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+</body>
+<script>
+    var div = document.createElement('div');
+    div.className = "div1"; 
+    var p = document.createElement("p");
+    var a = document.createElement("a");
+    var element = document.createComment('p');
+
+    p.textContent = "paragraphe"; 
+    element.textContent ='element';
+    a.href = "a"; 
+    a.textContent = "Lien"; 
+
+
+    var div1= document.getElementsByClassName('div1');
+    document.body.appendChild(div);
+    p.appendChild(a);
+    div.appendChild(p);
+
+    div.insertBefore(element, p);
+    div.appendChild(element);
+
+</script>
+</html>

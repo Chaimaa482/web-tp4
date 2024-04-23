@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <table id="myTable" border="1">
+        <tr>
+            <td>Colonne 1</th>
+            <th>Colonne 2</th>
+        </tr>
+        <tr>
+            <td>Ligne 1, Colonne 1</td>
+            <td>Ligne 1, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 2, Colonne 1</td>
+            <td>Ligne 2, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 3, Colonne 1</td>
+            <td>Ligne 3, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 4, Colonne 1</td>
+            <td>Ligne 4, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 5, Colonne 1</td>
+            <td>Ligne 5, Colonne 2</td>
+        </tr>
+    </table>
+
+    <script>
+        var table = document.getElementById("myTable");
+        var cells = table.getElementsByTagName("td");
+        
+
+        // Fusionner les cellules de la première ligne
+        var th = table.querySelector("tr:first-child th");
+        th.colSpan = 2;
+
+        // Donner une couleur de fond rose aux lignes paires et beige aux lignes impaires
+        var rows = table.querySelectorAll("tr");
+        for (var i = 1; i < rows.length; i++) {
+            if (i % 2 === 0) {
+                rows[i].style.backgroundColor = "pink";
+            } else {
+                rows[i].style.backgroundColor = "beige";
+            }
+        }
+
+        // Donner une classe col1 aux colonnes paires et col2 aux colonnes impaires
+        var cellsCol1 = table.getElementsByClassName("col1");
+        var cellsCol2 = table.getElementsByClassName("col2");
+        for (var i = 0; i < cells.length; i++) {
+            if (i % 2 === 0) {
+                cells[i].className = "col1";
+            } else {
+                cells[i].className = "col2";
+            }
+        }
+
+        // Augmenter le padding de toutes les cellules sauf celles de la première ligne
+        for (var i = 1; i < cells.length; i++) {
+            cells[i].style.padding = "10px";
+        }
+    </script>
+</body>
+</html>

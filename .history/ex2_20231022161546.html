@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transform H1 to Link</title>
+</head>
+<body>
+    <h1>This is a heading</h1>
+
+    <script>
+        var heading = document.getElementsByTagName('h1');
+
+        // Create an <a> tag and set its href and text content
+        var link = document.createElement("a");
+        link.href = "https://example.com"; // Set the URL you want
+        link.textContent = heading.textContent;
+
+        // Replace the h1 element with the link
+        heading.parentNode.replaceChild(link, heading);
+    </script>
+</body>
+</html>

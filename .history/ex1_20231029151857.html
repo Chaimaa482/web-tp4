@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<style>
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <th>Colonne 0</th>
+            <th>Colonne 0</th>  
+            <th>Actions</th>
+        </tr>      
+        <tr>
+            <td>Ligne 1, Colonne 1</td>
+            <td>Ligne 1, Colonne 2</td>
+            <td><button class="delete-row">Delete</button></td>
+        </tr>
+        <tr>
+            <td>Ligne 2, Colonne 1</td>
+            <td>Ligne 2, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 3, Colonne 1</td>
+            <td>Ligne 3, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 4, Colonne 1</td>
+            <td>Ligne 4, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 5, Colonne 1</td>
+            <td>Ligne 5, Colonne 2</td>
+        </tr>
+        
+        
+        
+    </table>
+    <button class="">ADD</button>
+
+    <script>
+        var table = document.getElementsByTagName('table');
+        var cells = document.getElementsByTagName("td");
+        // Donner une couleur de fond rose aux lignes paires et beige aux lignes impaires
+        var rows = document.querySelectorAll("tr");
+        for (var i = 1; i < rows.length; i++) {
+            if (i % 2 === 0) {
+                rows[i].style.backgroundColor = "pink";
+            } else {
+                rows[i].style.backgroundColor = "beige";
+            }
+        }
+
+        // Donner une classe col1 aux colonnes paires et col2 aux colonnes impaires
+        for (var i = 0; i < cells.length; i++) {
+            if (i % 2 === 0) {
+                cells[i].style.color= 'black';
+            } else {
+                cells[i].style.color= 'red';
+            }
+        }
+        //fusionner la premiere line
+        var row = document.querySelector('table tr:first-child');
+        row.cells[0].colSpan=2;
+        row.removeChild(row.cells[1]);
+
+
+        //delete bordure 
+        rows[0].style.border = "none";
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].style.border = "none";
+            cells[i].style.padding='10px'
+        }
+
+        //making the table cells editable on click
+        for (var i = 0; i < cells.length; i++) {
+        cells[i].addEventListener("click", function() {
+        var cellText = this.innerText;
+        this.innerHTML = "<input type='text' value='" + cellText + "'>";
+        var input = this.querySelector("input");
+        input.focus();
+        input.addEventListener("blur", function() {
+            cellText = this.value;
+            this.parentNode.innerText = cellText;
+        }); 
+         }); } 
+
+         //add row
+         var addButton = document.querySelector('button');
+         addButton.addEventListener('click', function() {
+          var newRow = document.createElement('tr');
+          newRow.innerHTML = "<td><input type='text' value=''></td><td><input type='text' value=''></td><td></td>";
+          document.querySelector('table').appendChild(newRow);
+          });
+
+          //delete button 
+
+
+
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <th>Colonne 0</th>
+            <th>Colonne 0</th>        
+        <tr>
+            <td>Ligne 1, Colonne 1</td>
+            <td>Ligne 1, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 2, Colonne 1</td>
+            <td>Ligne 2, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 3, Colonne 1</td>
+            <td>Ligne 3, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 4, Colonne 1</td>
+            <td>Ligne 4, Colonne 2</td>
+        </tr>
+        <tr>
+            <td>Ligne 5, Colonne 1</td>
+            <td>Ligne 5, Colonne 2</td>
+        </tr>
+    </table>
+
+    <script>
+        var table = document.getElementsByTagName('table');
+        var cells = document.getElementsByTagName("td");
+   
+        // Donner une couleur de fond rose aux lignes paires et beige aux lignes impaires
+        var rows = document.querySelectorAll("tr");
+        for (var i = 1; i < rows.length; i++) {
+            if (i % 2 === 0) {
+                rows[i].style.backgroundColor = "pink";
+            } else {
+                rows[i].style.backgroundColor = "beige";
+            }
+        }
+
+        // Donner une classe col1 aux colonnes paires et col2 aux colonnes impaires
+        for (var i = 0; i < cells.length; i++) {
+            if (i % 2 === 0) {
+                cells[i].style.color= 'black';
+            } else {
+                cells[i].style.color= 'red';
+            }
+        }
+        //fusionner la premiere ligne 
+        var row = document.querySelector('table tr:first-child');
+        row.cells[0].colSpan=2;
+        row.removeChild(row.cells[1]);
+
+
+        //delete bordure 
+        var table = document.getElementsByTagName('table');
+        var cells = document.getElementsByTagName("td");
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].style.border = "none";
+        }
+        
+    </script>
+</body>
+</html>

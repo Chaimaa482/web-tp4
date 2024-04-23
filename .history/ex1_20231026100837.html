@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+var p2=document.createElement("p");
+p2.textContent="A";
+var divElement = document.createElement("div");
+divElement.className = "div1"; 
+
+var pElement = document.createElement("p");
+pElement.textContent = "paragraphe1"; 
+
+
+var aElement = document.createElement("a");
+aElement.href = "a"; 
+aElement.textContent = "Lien"; 
+
+
+pElement.appendChild(aElement);
+
+divElement.appendChild(pElement);
+
+document.body.appendChild(divElement);
+divElement.insertBefore(p2,pElement);
+
+</script>
+</body>
+</html>

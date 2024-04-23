@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+</body>
+<script>
+    // Créer un élément div
+var divElement = document.createElement("div");
+divElement.className = "div1"; // Ajouter une classe à l'élément div
+
+// Créer un élément paragraphe (p)
+var pElement = document.createElement("p");
+pElement.textContent = "paragraphe1"; // Ajouter du texte au paragraphe
+
+// Créer un élément lien (a)
+var aElement = document.createElement("a");
+aElement.href = "a"; // Ajouter l'attribut href au lien
+aElement.textContent = "Lien"; // Ajouter du texte au lien
+
+// Ajouter le lien à l'élément paragraphe
+pElement.appendChild(aElement);
+
+// Ajouter le paragraphe à l'élément div
+divElement.appendChild(pElement);
+
+// Ajouter l'élément div au corps du document
+document.body.appendChild(divElement);
+
+
+    var div = document.createElement('div');
+    div.textContent
+
+    document.body.appendChild(div);
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .icon {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var body = document.body;
+        var form = document.createElement("form");
+        form.innerHTML = `
+            <label for="password">Password:</label><br/>
+            <input type="password" id="password" name="password"><br>
+            <label for="confirmPassword">Confirm Password:</label><br/>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <div class="icon correct"  id="correct">&#10004;</div>
+            <div class="icon incorrect"  id="incorrect" >&#10008;
+        `;
+
+        body.appendChild(form);
+
+        var passwordInput = document.getElementById("password");
+        var confirmPasswordInput = document.getElementById("confirmPassword");
+        var correctIcon = document.getElementById('correct')
+        var incorrectIcon = document.querySelector(".incorrect");
+
+        confirmPasswordInput.addEventListener("input", function() {
+            var password = passwordInput.value;
+            var confirmPassword = confirmPasswordInput.value;
+            var isMatch = password === confirmPassword && password.length > 0 && confirmPassword.length > 0;
+            
+            correctIcon.style.display = isMatch ? "inline" : "none";
+            incorrectIcon.style.display = isMatch ? "none" : "inline";
+        });
+    </script>
+</body>
+</html>
